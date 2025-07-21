@@ -17,7 +17,7 @@ export default class Tarefa {
         let i = document.createElement('i')
         i.setAttribute('class', 'ri-checkbox-blank-line')
         i.addEventListener('click', ()=>{
-            this.removeTarefa()
+            this.#mudarCheckbox(i)
         })
         span.appendChild(i)
 
@@ -26,5 +26,10 @@ export default class Tarefa {
         span.appendChild(nomeTarefa)
 
         return span
+    }
+
+    #mudarCheckbox(elemento){
+        elemento.classList.toggle("ri-checkbox-blank-line")
+        elemento.classList.toggle("ri-checkbox-fill")
     }
 }

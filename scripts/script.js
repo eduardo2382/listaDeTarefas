@@ -5,7 +5,19 @@ const btnAdd = document.querySelector('.btnAdd')
 
 btnAdd.addEventListener('click', ()=>{
     if(inputAdd.value.length > 0){
-        let tarefa = new Tarefa
-        tarefa.novaTarefa(inputAdd.value)
+        criarTarefa()
     }
 })
+
+document.addEventListener('keydown', ()=>{
+    if(event.key == 'Enter' && document.activeElement == inputAdd && inputAdd.value.length > 0){
+        criarTarefa()
+    }
+})
+
+function criarTarefa(){
+    let tarefa = new Tarefa()
+    tarefa.novaTarefa(inputAdd.value)
+    inputAdd.value = ''
+    inputAdd.focus()
+}
