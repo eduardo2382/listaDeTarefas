@@ -14,12 +14,13 @@ export default class Tarefa {
         let span = document.createElement('span')
         span.setAttribute('class', 'tarefa')
 
-        let i = document.createElement('i')
-        i.setAttribute('class', 'ri-checkbox-blank-line')
-        i.addEventListener('click', ()=>{
-            this.#mudarCheckbox(i)
+        let checkbox = document.createElement('div')
+        checkbox.setAttribute('class', 'checkbox')
+        checkbox.classList.add('checkbox')
+        checkbox.addEventListener('click', ()=>{
+            this.#mudarCheckbox(checkbox)
         })
-        span.appendChild(i)
+        span.appendChild(checkbox)
 
         let nomeTarefa = document.createElement('span')
         nomeTarefa.innerText = this.nome
@@ -29,7 +30,7 @@ export default class Tarefa {
     }
 
     #mudarCheckbox(elemento){
-        elemento.classList.toggle("ri-checkbox-blank-line")
-        elemento.classList.toggle("ri-checkbox-fill")
+        elemento.classList.toggle("checked")
+        elemento.classList.toggle("unchecked")
     }
 }
