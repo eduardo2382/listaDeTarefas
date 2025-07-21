@@ -16,8 +16,23 @@ document.addEventListener('keydown', ()=>{
 })
 
 function criarTarefa(){
-    let tarefa = new Tarefa()
-    tarefa.novaTarefa(inputAdd.value)
+    let tarefa = new Tarefa(inputAdd.value)
+    let elementosTarefa = document.querySelectorAll('.tarefa')
+
+    if(elementosTarefa.length == 0){
+        alternarAlerta()
+        tarefa.adicionarTarefa()
+    }else{
+        tarefa.adicionarTarefa()
+    }
+
+
     inputAdd.value = ''
     inputAdd.focus()
+}
+
+function alternarAlerta(){
+    let alerta = document.querySelector('.alertEmpty')
+    
+    alerta.classList.toggle('alertNone')
 }

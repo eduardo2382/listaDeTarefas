@@ -1,11 +1,10 @@
 export default class Tarefa {
-    constructor(){
-    }
-
-    novaTarefa(nome){
+    constructor(nome){
         this.nome = nome
         this.elementoHTML = this.#elementoTarefa()
+    }
 
+    adicionarTarefa(nome){
         let main = document.querySelector('main')
         main.appendChild(this.elementoHTML)
     }
@@ -14,9 +13,8 @@ export default class Tarefa {
         let span = document.createElement('span')
         span.setAttribute('class', 'tarefa')
 
-        let checkbox = document.createElement('div')
-        checkbox.setAttribute('class', 'checkbox')
-        checkbox.classList.add('checkbox')
+        let checkbox = document.createElement('i')
+        checkbox.setAttribute('class', 'ri-checkbox-blank-line')
         checkbox.addEventListener('click', ()=>{
             this.#mudarCheckbox(checkbox)
         })
@@ -30,7 +28,7 @@ export default class Tarefa {
     }
 
     #mudarCheckbox(elemento){
-        elemento.classList.toggle("checked")
-        elemento.classList.toggle("unchecked")
+        elemento.classList.toggle("ri-checkbox-blank-line")
+        elemento.classList.toggle("ri-checkbox-fill")
     }
 }

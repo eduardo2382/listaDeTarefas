@@ -88,10 +88,16 @@ main{
     overflow: scroll; 
 }
 
-#alertEmpty{
+.alertEmpty{
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text);
     font-size: 1.7em;
+
+    display: block;
+}
+
+.alertNone{
+    display: none;
 }
 
 .tarefa{
@@ -115,55 +121,12 @@ main{
     gap: 10px;
 }
 
-.checkbox{
-    width: 20px;
-    height: 20px;
-
-    border: 2px solid white;
-    border-radius: 2px;
-
-    position: relative;
-
-    cursor: pointer;
-}
-
-.checkbox::after, .checkbox::before{
-    opacity: 0;
-}
-
-.checked::after, .checked::before{
-    content: '';
-
-    position: absolute;
-
-    height: 2px;
-
-    background-color: white;
-
-    opacity: 1;
-}
-
-
-.checked::after{
-    width: 6px;
-
-    transform: rotate(45deg);
-
-    top: 8px;
-    left: 2px;
-}
-
-.checked::before{
-    width: 10px;
-
-    transform: rotate(-45deg);
-
-    top: 6px;
-    left: 5px;
-}
-
-.checked ~ span{
+.ri-checkbox-fill ~ span{
     color: var(--text-light);
+}
+
+.tarefa i{
+    cursor: pointer;
 }
 
 .tarefa span{
