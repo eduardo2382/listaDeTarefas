@@ -1,7 +1,9 @@
 import Tarefa from './tarefa.js'
+import Database from './database.js'
 
 const inputAdd = document.querySelector('#inputAdd')
 const btnAdd = document.querySelector('.btnAdd')
+const database = new Database('tarefas')
 
 btnAdd.addEventListener('click', ()=>{
     if(inputAdd.value.length > 0){
@@ -22,8 +24,10 @@ function criarTarefa(){
     if(elementosTarefa.length == 0){
         alternarAlerta()
         tarefa.adicionarTarefa()
+        database.adicionar(inputAdd.value)
     }else{
         tarefa.adicionarTarefa()
+        database.adicionar(inputAdd.value)
     }
 
 
